@@ -7,8 +7,9 @@ import (
 )
 
 func SetupRouter(deps *Dependencies) *gin.Engine {
-	router := gin.Default()
+	router := gin.New()
 
+	router.Use(middleware.FancyLogger(Logger))
 	router.Use(gin.Recovery())
 	router.Use(middleware.SecurityHeaders())
 	router.Use(middleware.RequestID())

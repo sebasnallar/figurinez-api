@@ -19,11 +19,6 @@ func InitializeDatabase() (*gorm.DB, error) {
 		return nil, err
 	}
 
-	err = runMigrations(dsn)
-	if err != nil {
-		return nil, err
-	}
-
 	return db, nil
 }
 
